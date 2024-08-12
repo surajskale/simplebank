@@ -14,6 +14,7 @@ sql:
             emit_prepared_queries: false
             emit_interface: false
             emit_exact_table_names: false
+            emit_empty_slices: true # the api response is returned null instead of false if this is set as false
             out: "./db/sqlc"
             sql_package: "database/sql"
    

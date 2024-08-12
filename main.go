@@ -6,28 +6,27 @@ import (
 	"log"
 	api "simplebank/api"
 	db "simplebank/db/sqlc"
+	"simplebank/util"
 
 	_ "github.com/lib/pq"
 )
 
-const (
-	dbDriver      = "postgres"
-	dbSource      = "postgresql://root:postgres@123@localhost:5432/simple_bank?sslmode=disable"
-	serverAddress = "0.0.0.0:8080"
-)
-
 func main() {
-	conn, err := sql.Open(dbDriver, dbSource)
+	config, err := util.LoadConfig(".") // . because the config file is in same location as main.go file
+	if err != nil {
+		log.Fatal("Can not load config:", err)
+	}
+
+	conn, err := sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("can not connect to db", err)
 	}
 
 	store := db.NewStore(conn)
 	server := api.NewServer(store)
-	fmt.Println(serverAddress)
+	fmt.Println(config.ServerAddress)
 
-	err = server.Start(serverAddress)
-
+	err = server.Start(config.ServerAddress)
 	if err != nil {
 		log.Fatal("can not start server", err)
 	}
