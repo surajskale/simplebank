@@ -5,3 +5,17 @@ go get github.com/stretchr/testify
 go get github.com/lib/pq
 go get -u github.com/gin-gonic/gin\n
 go get github.com/spf13/viper
+
+go install go.uber.org/mock/mockgen@latest
+ll ~/go/bin
+total 73M
+-rwxrwxr-x 1 suraj_kale suraj_kale  19M Aug  3 10:03 dlv
+-rwxrwxr-x 1 suraj_kale suraj_kale  31M Jul 15 20:07 gopls
+-rwxrwxr-x 1 suraj_kale suraj_kale 9.5M Aug 14 20:22 mockgen
+-rwxrwxr-x 1 suraj_kale suraj_kale  14M Jul 15 20:06 staticcheck
+
+vim ~/.zshrc
+1   export PATH=$PATH:~/go/bin
+
+
+how to use mockgen 
