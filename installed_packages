@@ -18,4 +18,22 @@ vim ~/.zshrc
 1   export PATH=$PATH:~/go/bin
 
 
-how to use mockgen 
+how to use mockgen ??
+
+
+#sqlc commands
+snap install sqlc
+sudo snap install sqlc
+sqlc init
+sqlc version
+mkdir sqlc
+sqlc generate
+cat sqlc.yaml
+sqlc generate
+
+
+
+
+migrate create -ext sql -dir db/migration -seq init_schema # creates 000001_init_schema.up.sql 000001_init_schema.down.sql
+migrate create -ext sql -dir db/migration -seq add_users # creates 000002_add_users.up.sql 000002_add_users.down.sql
+
